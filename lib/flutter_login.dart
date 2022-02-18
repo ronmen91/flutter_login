@@ -773,45 +773,52 @@ class _FlutterLoginState extends State<FlutterLogin>
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
+            
             SingleChildScrollView(
               child: Theme(
                 data: theme,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: <Widget>[
-                    Positioned(
-                      child: AuthCard(
-                        key: authCardKey,
-                        userType: widget.userType,
-                        padding: EdgeInsets.only(top: cardTopPosition),
-                        loadingController: _loadingController,
-                        userValidator: userValidator,
-                        passwordValidator: passwordValidator,
-                        onSubmit: _reverseHeaderAnimation,
-                        onSubmitCompleted: widget.onSubmitAnimationCompleted,
-                        hideSignUpButton: widget.onSignup == null,
-                        hideForgotPasswordButton:
-                            widget.hideForgotPasswordButton,
-                        loginAfterSignUp: widget.loginAfterSignUp,
-                        hideProvidersTitle: widget.hideProvidersTitle,
-                        additionalSignUpFields: widget.additionalSignupFields,
-                        disableCustomPageTransformer:
-                            widget.disableCustomPageTransformer,
-                        loginTheme: widget.theme,
-                        navigateBackAfterRecovery:
-                            widget.navigateBackAfterRecovery,
+                child: Container(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/splash_logo.png'),
+                          fit: BoxFit.cover
+                      )
+                  ),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      Positioned(
+                        child: AuthCard(
+                          key: authCardKey,
+                          userType: widget.userType,
+                          padding: EdgeInsets.only(top: cardTopPosition),
+                          loadingController: _loadingController,
+                          userValidator: userValidator,
+                          passwordValidator: passwordValidator,
+                          onSubmit: _reverseHeaderAnimation,
+                          onSubmitCompleted: widget.onSubmitAnimationCompleted,
+                          hideSignUpButton: widget.hideSignUpButton,
+                          hideForgotPasswordButton:
+                          widget.hideForgotPasswordButton,
+                          loginAfterSignUp: widget.loginAfterSignUp,
+                          hideProvidersTitle: widget.hideProvidersTitle,
+                          disableCustomPageTransformer:
+                          widget.disableCustomPageTransformer,
+                          loginTheme: widget.theme,
+                          navigateBackAfterRecovery:
+                          widget.navigateBackAfterRecovery,
+                        ),
                       ),
-                    ),
-                    Positioned(
-                      top: cardTopPosition - headerHeight - headerMargin,
-                      child: _buildHeader(headerHeight, loginTheme),
-                    ),
-                    Positioned.fill(
-                        child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: footerWidget)),
-                    ...?widget.children,
-                  ],
+                      Positioned(
+                        top: cardTopPosition - headerHeight - headerMargin,
+                        child: _buildHeader(headerHeight, loginTheme),
+                      ),
+                      Positioned.fill(
+                          child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: footerWidget))
+                    ],
+                  ),
                 ),
               ),
             ),

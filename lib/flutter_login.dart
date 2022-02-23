@@ -780,7 +780,7 @@ class _FlutterLoginState extends State<FlutterLogin>
                   decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage('assets/images/splash_logo.png'),
-                          fit: BoxFit.cover
+                          fit: BoxFit.fill
                       )
                   ),
                   child: Stack(
